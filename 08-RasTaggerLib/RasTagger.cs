@@ -7,16 +7,31 @@ namespace _08_RasTaggerLib
 {
     public class RasFields
     {
+        #region Static Methods
+        public static string StandardFieldsOrdered(string delimiter)
+        {
+            return "Title" + delimiter + "Track" + delimiter + "TrackCount" + delimiter + "Artists" + delimiter + "Album" + delimiter + "AlbumArtist" + delimiter + "Year" + delimiter + "Genres" + delimiter + "Disc" + delimiter + "DiscCount";
+        }
+        #endregion
         public string Title { get; set; }
         public uint Track { get; set; }
         public uint TrackCount { get; set; }
         public string[] Artists { get; set; }
         public string Album { get; set; }
-        public string AlbumArtist { get; set; }
+        public string[] AlbumArtist { get; set; }
         public uint Year { get; set; }
         public string[] Genres { get; set; }
         public uint Disc { get; set; }
         public uint DiscCount { get; set; }
+
+        #region Public Methods
+        public string StandardOrdered(string delimiter)
+        {
+            string stringArryDelimiter = ", ";
+            return Title + delimiter + Track + delimiter + TrackCount + delimiter + String.Join(stringArryDelimiter, Artists) + delimiter + Album + delimiter + String.Join(stringArryDelimiter, AlbumArtist) + delimiter + Year.ToString() + delimiter + String.Join(stringArryDelimiter, Genres) + delimiter + Disc.ToString() + delimiter + DiscCount.ToString();
+        }
+        #endregion
+
     }
 
     class RasTaggerClass
@@ -53,9 +68,9 @@ namespace _08_RasTaggerLib
                     Title = tfile.Tag.Title,
                     Track = tfile.Tag.Track,
                     TrackCount = tfile.Tag.TrackCount,
-                    Artists = tfile.Tag.AlbumArtists,
+                    Artists = tfile.Tag.Performers,
                     Album = tfile.Tag.Album,
-                    AlbumArtist = tfile.Tag.FirstAlbumArtist,
+                    AlbumArtist = tfile.Tag.AlbumArtists,
                     Year = tfile.Tag.Year,
                     Genres = tfile.Tag.Genres,
                     Disc = tfile.Tag.Disc,
@@ -72,7 +87,7 @@ namespace _08_RasTaggerLib
 
     static public class RasTagger
     {        
-        static int traverse (string path, Func<RasFields, bool> rasFieldsProcessor)
+        public static int traverse (string path, Func<RasFields, bool> rasFieldsProcessor)
         {
             var processingClass = new RasTaggerClass(path, rasFieldsProcessor);
             return processingClass.Run();
