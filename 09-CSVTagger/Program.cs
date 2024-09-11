@@ -3,7 +3,7 @@ using _08_RasTaggerLib;
 using System.IO;
 
 const string delimiter = "\t";
-//const string path = @"..\..\..\..\00-Resources\fortagging";
+//const string inPath = @"..\..\..\..\00-Resources\fortagging";
 const string inPath = @"D:\";
 
 StreamWriter outStream = new StreamWriter("Tags.csv");
