@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             toolStrip1 = new ToolStrip();
             openFolderButton = new ToolStripButton();
             splitContainer1 = new SplitContainer();
@@ -68,6 +70,11 @@
             splitContainer1.Location = new Point(0, 25);
             splitContainer1.Name = "splitContainer1";
             // 
+            // splitContainer1.Panel1
+            // 
+            splitContainer1.Panel1.BackColor = Color.FromArgb(48, 48, 48);
+            splitContainer1.Panel1.ForeColor = Color.FromArgb(224, 224, 224);
+            // 
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(grid);
@@ -83,19 +90,35 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.LightSeaGreen;
             dataGridViewCellStyle1.SelectionForeColor = Color.White;
             grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            grid.BackgroundColor = Color.Black;
-            grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grid.BackgroundColor = Color.FromArgb(48, 48, 48);
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle2.ForeColor = Color.FromArgb(224, 224, 224);
             dataGridViewCellStyle2.SelectionBackColor = Color.LightSeaGreen;
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            grid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle3.SelectionBackColor = Color.LightSeaGreen;
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            grid.DefaultCellStyle = dataGridViewCellStyle3;
             grid.Dock = DockStyle.Fill;
             grid.Location = new Point(0, 0);
             grid.Name = "grid";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle4.SelectionBackColor = Color.LightSeaGreen;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             grid.Size = new Size(530, 425);
             grid.TabIndex = 0;
             // 
